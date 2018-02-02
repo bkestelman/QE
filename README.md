@@ -10,7 +10,7 @@ Quantum Entanglement Demonstration through violation of Bell's Inequality
 3. Set up and activate python virtual environment
 ```
 virtualenv -p python3 venv    # create virtual environment for python3
-source venv/bin/activate         # activate virtual environment
+source venv/bin/activate      # activate virtual environment
 ```
 
 4. Install required python libraries
