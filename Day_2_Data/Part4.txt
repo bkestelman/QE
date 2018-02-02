@@ -1,0 +1,24 @@
+=================================
+# quCR CHSH Measurement Protocol 
+=================================
+#    Integration Time: 1000 ms
+#    CHSH Result:      2.603
+#    CHSH Error:       0.041
+#    no of Stdev:       14
+#      polarizer positions         rate corr. for accidential coincidences
+       X =   0 deg,  Y =  22.5 deg   rate: 71
+       X =   0 deg,  Y =  67.5 deg   rate: 397
+       X =   0 deg,  Y = 112.5 deg   rate: 362
+       X =   0 deg,  Y = 157.5 deg   rate: 199
+       X =  45 deg,  Y =  22.5 deg   rate: 228
+       X =  45 deg,  Y =  67.5 deg   rate: 44
+       X =  45 deg,  Y = 112.5 deg   rate: 520
+       X =  45 deg,  Y = 157.5 deg   rate: 666
+       X =  90 deg,  Y =  22.5 deg   rate: 835
+       X =  90 deg,  Y =  67.5 deg   rate: 152
+       X =  90 deg,  Y = 112.5 deg   rate: 140
+       X =  90 deg,  Y = 157.5 deg   rate: 474
+       X = 135 deg,  Y =  22.5 deg   rate: 653
+       X = 135 deg,  Y =  67.5 deg   rate: 551
+       X = 135 deg,  Y = 112.5 deg   rate: 50
+       X = 135 deg,  Y = 157.5 deg   rate: 45
