@@ -11,4 +11,4 @@ Quantum Entanglement Demonstration through violation of Bell's Inequality
 - `virtualenv -p python3 venv` creates virtual environment using python 3
 - `pip install pandas` data analysis library
 - `pip install matplotlib` graph plotting library
-- `sudo apt install python3-tk` GUI library required by matplotlib (not sure why this has to be through apt instead of pip)
+- `sudo apt install python3-tk` GUI library required by matplotlib (not sure why there isn't a pip package for this)
