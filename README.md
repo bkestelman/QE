@@ -12,3 +12,5 @@ Quantum Entanglement Demonstration through violation of Bell's Inequality
 - `pip install pandas` data analysis library
 - `pip install matplotlib` graph plotting library
 - `sudo apt install python3-tk` GUI library required by matplotlib (not sure why there isn't a pip package for this)
+
+![alt text](https://raw.githubusercontent.com/bkestelman/QE/Day_2_Data/sample_data.png
