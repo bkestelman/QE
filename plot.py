@@ -1,5 +1,7 @@
 import pandas
 import matplotlib.pyplot as plt
+import sys
+import argparse
 
 import consts
 from math_util import *
@@ -68,6 +70,10 @@ def plot_clean_data(datafile):
         ax = data.plot.scatter(x='Angle', y='Single 1', color='Blue', ax=ax)
         data.plot.scatter(x='Angle', y='Coincidence', color='Green', ax=ax, title='Cleaned Spikes')
 
-plot_raw_data('Day_2_Data/Part1_a0.quCNTPlot')
-plot_clean_data('Day_2_Data/Part1_a0.quCNTPlot')
+parser = argparse.ArgumentParser(description='Plot quEd exmperiment results')
+parser.add_argument('file', metavar='f', type=str)
+args = parser.parse_args()
+print(args.file)
+plot_raw_data(args.file)
+plot_clean_data(args.file)
 plt.show()
