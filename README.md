@@ -20,7 +20,7 @@ pip install matplotlib        # graph plotting library
 sudo apt install python3-tk   # GUI library required by matplotlib (not sure why there isn't a pip package for this)
 ```
 
-5. Run `python plot.py`
+5. Run `python plot.py [PATH_TO_DATA]`
 
 ![alt text](Sample_Images/sample_plot.png)
 ![alt text](Sample_Images/clean_line.png)
