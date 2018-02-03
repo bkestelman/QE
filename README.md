@@ -25,3 +25,6 @@ sudo apt install python3-tk   # GUI library required by matplotlib (not sure why
 ![alt text](Sample_Images/sample_plot.png)
 ![alt text](Sample_Images/clean_line.png)
 ![alt text](Sample_Images/clean_scatter.png)
+
+There are still spikes on the left because this was our first experiment, and we switched from blocking one polarizer to the other. The spike cleaning algorithm is currently based off values from polarizer alpha only (red). 
+
