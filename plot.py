@@ -24,7 +24,6 @@ def plot_raw_data(datafile):
         data = prettify_data(data)
         data.plot.line(x='Time', color=['r','b','g']) # TODO: check that colors match quEd controller
         plt.title('Raw data')
-        plt.show()
 
 # deletes spikes produced between angle changes
 # algorithm:
@@ -34,19 +33,27 @@ def plot_raw_data(datafile):
 # 4. use selected points
 def clean_spikes(data):
     start = 0
-    consider = 10
+    consider = 13 # 13 seems to work better than 10 because sometimes we waited longer than 5 seconds
     select = 5
-    single = data['Single 0']
+    singles_0 = data['Single 0'].tolist()
+    singles_1 = data['Single 1'].tolist()
+    coincidence = data['Coincidence'].tolist()
     angles = [x for x in range(0, 361, 10)]
     angle_index = 0
     print(angles)
     clean_data = [] 
-    while(start < len(single) - consider):
-        subseq = single[start:consider+start] 
+    while(angle_index <= 36):
+        subseq = singles_0[start:consider+start] 
         closest = closest_subseq(subseq, select)
+        print('angle', angle_index)
+        print('subseq', subseq)
+        print('closest', closest)
+        cursor = start + closest['index']
         for point in range(select):
-            clean_data.append({'Angle': angles[angle_index], 'Single 0': point})
+            clean_data.append({'Angle': angles[angle_index], 'Single 0': singles_0[cursor], 'Single 1': singles_1[cursor], 'Coincidence': coincidence[cursor]})
+            cursor += 1
         angle_index += 1
+        start += closest['index'] + select 
     return pandas.DataFrame(clean_data)
 
 def plot_clean_data(datafile):
@@ -54,9 +61,13 @@ def plot_clean_data(datafile):
         data = read_data(f)
         data = prettify_data(data)
         data = clean_spikes(data)
-        print(data)
-        # add angle column
+        with pandas.option_context('display.max_rows', None, 'display.max_columns', None):
+            print(data)
+        data.plot(x='Angle')
+        ax = data.plot.scatter(x='Angle', y='Single 0', color='Red')
+        ax = data.plot.scatter(x='Angle', y='Single 1', color='Blue', ax=ax)
+        data.plot.scatter(x='Angle', y='Coincidence', color='Green', ax=ax)
 
 plot_raw_data('Day_2_Data/Part1_a0.quCNTPlot')
-#plot_clean_data('Day_2_Data/Part1_a0.quCNTPlot')
-
+plot_clean_data('Day_2_Data/Part1_a0.quCNTPlot')
+plt.show()
