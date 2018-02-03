@@ -22,4 +22,6 @@ sudo apt install python3-tk   # GUI library required by matplotlib (not sure why
 
 5. Run `python plot.py`
 
-![alt text](Day_2_Data/sample_plot.png)
+![alt text](Sample_Images/sample_plot.png)
+![alt text](Sample_Images/clean_line.png)
+![alt text](Sample_Images/clean_scatter.png)
