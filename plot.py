@@ -2,17 +2,16 @@ import pandas
 import matplotlib.pyplot as plt
 import argparse
 import logging
+import logging.config
 
 import settings
 import consts
 import clean
 from math_util import *
 
-logger = logging.getLogger(__name__)
-handler = logging.FileHandler(settings.log_path('plot.log'))
-logger.addHandler(handler)
-logger.setLevel(logging.DEBUG)
-logger.info('\nplot.py log\n----------')
+logging.config.dictConfig(settings.LOG_CONFIG)
+logger = logging.getLogger('plot')
+logger.info('plot.py log\n----------')
 
 def read_data(f):
     return pandas.read_csv(f, delimiter='\t') 

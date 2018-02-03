@@ -7,11 +7,8 @@ import settings
 import consts
 from math_util import *
 
-logger = logging.getLogger(__name__)
-handler = logging.FileHandler(settings.log_path('clean.log'))
-logger.addHandler(handler)
-logger.setLevel(logging.DEBUG)
-logger.info('\nclean.py log\n----------')
+logger = logging.getLogger('clean')
+logger.info('clean.py log\n----------')
 
 # rename columns, drop extra column, remove times with no measurements
 def prettify_data(data): 
