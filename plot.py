@@ -63,10 +63,10 @@ def plot_clean_data(datafile):
         data = clean_spikes(data)
         with pandas.option_context('display.max_rows', None, 'display.max_columns', None):
             print(data)
-        data.plot(x='Angle')
+        data.plot(x='Angle', title='Cleaned Spikes')
         ax = data.plot.scatter(x='Angle', y='Single 0', color='Red')
         ax = data.plot.scatter(x='Angle', y='Single 1', color='Blue', ax=ax)
-        data.plot.scatter(x='Angle', y='Coincidence', color='Green', ax=ax)
+        data.plot.scatter(x='Angle', y='Coincidence', color='Green', ax=ax, title='Cleaned Spikes')
 
 plot_raw_data('Day_2_Data/Part1_a0.quCNTPlot')
 plot_clean_data('Day_2_Data/Part1_a0.quCNTPlot')
