@@ -12,3 +12,10 @@ Sample results from the different test programs are stored in the Img/ directory
 Generates data from sin curve (sin(x) from x=0->2pi) with random noise. Tries to fit data. Example:
 
 ![fit_test_simple](Img/fit_test_simple_0.png)
+
+## fit_test_multipoint
+
+Same thing, but demonstrates it works with multiple y values per x value. 
+
+![fit_test_multipoint](Img/fit_test_multipoint_2.png)
+![fit_test_multipoint](Img/fit_test_multipoint_3.png)
