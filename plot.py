@@ -9,6 +9,7 @@ import logging.config
 import settings
 import consts
 import clean
+import Fitting.fit_pandas as fit
 
 logging.config.dictConfig(settings.LOG_CONFIG)
 logger = logging.getLogger('plot')
@@ -38,20 +39,19 @@ def func(x, a, b, c, d):
 def plot_fit(data):
     data = clean.prettify_data(data)
     data = clean.clean_spikes(data)
-    xdata = numpy.array(data['Angle'].tolist())
-    ydata = numpy.array(data['Single 1'].tolist())
-    x0 = numpy.array([0, 0, 0, 0])
-    print(optimization.curve_fit(func, xdata, ydata, x0))
+    fit_data = fit.fit_data(data['Angle'], data['Single 1'], func)
+    ax = data.plot.scatter(x='Angle', y='Single 1', color='Blue')
+    fit_data.plot.line(x='x', y='y', ax=ax)
 
 parser = argparse.ArgumentParser(description='Plot quEd exmperiment results')
 parser.add_argument('file', metavar='F', type=str, help='Filepath to data')
 args = parser.parse_args()
 logger.info('Filepath to data: ' + args.file)
 data = read_data(args.file) 
-plot_raw_data(data)
-plt.title(args.file + ' (Raw Data)')
-plot_clean_data(data)
-plt.title(args.file + ' (Cleaned Spikes)')
-#plt.show()
-
+#plot_raw_data(data)
+#plt.title(args.file + ' (Raw Data)')
+#plot_clean_data(data)
+#plt.title(args.file + ' (Cleaned Spikes)')
 plot_fit(data)
+plt.show()
+
