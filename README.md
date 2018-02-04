@@ -20,6 +20,7 @@ sudo apt install python3-tk        # GUI library required by matplotlib (not ava
 ```
 
 5. Run `python plot.py [PATH(S)_TO_DATA]`
+
 `[PATH(S)_TO_DATA]` may contain multiple files, so the following is a nice way to clean, plot, and fit all Day_2_Data:
 ```
 python plot.py Day_2_Data/*Plot
