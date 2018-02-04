@@ -1,6 +1,7 @@
 import logging
 
 LOG_DIR = 'Log'
+RESULTS_DIR = 'Results'
 
 def log_path(filename):
     return LOG_DIR + '/' + filename + '.log'

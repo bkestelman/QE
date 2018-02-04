@@ -7,6 +7,7 @@ import scipy.optimize as optimization
 import argparse
 import logging
 import logging.config
+import os
 
 import settings
 import consts
@@ -41,25 +42,33 @@ def func(x, a, b, c, d):
 def sin_func(x, a, b, c, d):
     return a*np.sin(b*x)+d
 def cos_func(x, a, b, c, d):
-    return a*np.cos(b*x)+d
+    return a*np.cos(b*x+c)+d
 
-def plot_fit(data):
+def plot_fit(data, filename=None):
     data = clean.prettify_data(data)
     data = clean.clean_spikes(data)
-    x0 = np.array([2000, physics_util.omega(period=200), 0, 18000])
-    fit_data = fit.fit_data(data['Angle'], data['Single 1'], cos_func, x0)
-    ax = data.plot.scatter(x='Angle', y='Single 1', color='Blue')
-    fit_data.plot.line(x='x', y='y', color='Black', ax=ax)
+    colors = {'Single 0': 'Red', 'Single 1': 'Blue', 'Coincidence': 'Green'}
+    for key in ['Single 0', 'Single 1', 'Coincidence']:
+        x0 = fit.autoinit_wave(data['Angle'], data[key])
+        fit_data = fit.fit_data(data['Angle'], data[key], cos_func, x0)
+        ax = data.plot.scatter(x='Angle', y=key, color=colors[key])
+        fit_data.plot.line(x='x', y='y', color='Black', ax=ax)
+        if filename is not None:
+            dest = settings.RESULTS_DIR + '/' + filename + '_' + key.replace(' ', '_') + '.png'
+            logger.debug('saving to ' + dest)
+            os.makedirs(os.path.dirname(dest), exist_ok=True)
+            plt.savefig(dest)
 
 parser = argparse.ArgumentParser(description='Plot quEd exmperiment results')
-parser.add_argument('file', metavar='F', type=str, help='Filepath to data')
+parser.add_argument('files', metavar='F', type=str, nargs='+', help='Filepath(s) to data')
 args = parser.parse_args()
-logger.info('Filepath to data: ' + args.file)
-data = read_data(args.file) 
-plot_raw_data(data)
-plt.title(args.file + ' (Raw Data)')
-plot_clean_data(data)
-plt.title(args.file + ' (Cleaned Spikes)')
-plot_fit(data)
-plt.show()
+logger.info('Filepath(s) to data: ' + str(args.files))
+for f in args.files:
+    data = read_data(f) 
+    #plot_raw_data(data)
+    #plt.title(args.file + ' (Raw Data)')
+    #plot_clean_data(data)
+    #plt.title(args.file + ' (Cleaned Spikes)')
+    plot_fit(data, filename=f)
+    #plt.show()
 
