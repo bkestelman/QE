@@ -27,7 +27,7 @@ python plot.py Day_2_Data/*Plot
 ```
 The resulting .pngs will be placed in Results/Day_2_Data/
 
-Currently, the above code will generate an error when it gets to Part_2 data. Part_1 data will still be available in Results/Day_2_Data
+Currently, the above code will produce an error when it gets to Part_2 data. Part_1 data will still be available in Results/Day_2_Data
 
 ![sample_plot_raw_data](Sample_Images/sample_plot.png)
 ![sample_plot_clean_spikes_line](Sample_Images/clean_line.png)
