@@ -7,7 +7,7 @@ import settings
 import consts
 from math_util import *
 
-logger = logging.getLogger('clean')
+logger = settings.createLogger(__name__)
 logger.info('clean.py log\n----------')
 
 # rename columns, drop extra column, remove times with no measurements

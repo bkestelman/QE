@@ -1,6 +1,6 @@
 import pandas
 import matplotlib.pyplot as plt
-import numpy
+import numpy as np
 import scipy.optimize as optimization
 import argparse
 import logging
@@ -10,9 +10,10 @@ import settings
 import consts
 import clean
 import Fitting.fit_pandas as fit
+import physics_util
 
-logging.config.dictConfig(settings.LOG_CONFIG)
-logger = logging.getLogger('plot')
+#logging.config.dictConfig(settings.LOG_CONFIG)
+logger = settings.createLogger(__name__)
 logger.info('plot.py log\n----------')
 
 def read_data(datafile):
@@ -34,24 +35,30 @@ def plot_clean_data(data):
     data.plot.scatter(x='Angle', y='Coincidence', color='Green', ax=ax)
 
 def func(x, a, b, c, d):
-    return a * numpy.sin(b*x+c) + d
+    return a * np.sin(b*x+c) + d
+
+def sin_func(x, a, b, c, d):
+    return a*np.sin(b*x)+d
+def cos_func(x, a, b, c, d):
+    return a*np.cos(b*x)+d
 
 def plot_fit(data):
     data = clean.prettify_data(data)
     data = clean.clean_spikes(data)
-    fit_data = fit.fit_data(data['Angle'], data['Single 1'], func)
-    ax = data.plot.scatter(x='Angle', y='Single 1', color='Blue')
-    fit_data.plot.line(x='x', y='y', ax=ax)
+    x0 = np.array([2000, physics_util.omega(period=200), 0, 18000])
+    fit_data = fit.fit_data(data['Angle'], data['Single 0'], sin_func, x0)
+    ax = data.plot.scatter(x='Angle', y='Single 0', color='Red')
+    fit_data.plot.line(x='x', y='y', color='Black', ax=ax)
 
 parser = argparse.ArgumentParser(description='Plot quEd exmperiment results')
 parser.add_argument('file', metavar='F', type=str, help='Filepath to data')
 args = parser.parse_args()
 logger.info('Filepath to data: ' + args.file)
 data = read_data(args.file) 
-plot_raw_data(data)
-plt.title(args.file + ' (Raw Data)')
-plot_clean_data(data)
-plt.title(args.file + ' (Cleaned Spikes)')
-#plot_fit(data)
+#plot_raw_data(data)
+#plt.title(args.file + ' (Raw Data)')
+#plot_clean_data(data)
+#plt.title(args.file + ' (Cleaned Spikes)')
+plot_fit(data)
 plt.show()
 
