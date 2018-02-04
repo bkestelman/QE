@@ -19,7 +19,11 @@ pip install -r requirements.txt    # install pip requirements listed in requirem
 sudo apt install python3-tk        # GUI library required by matplotlib (not available from pip)
 ```
 
-5. Run `python plot.py [PATH_TO_DATA]`
+5. Run `python plot.py [PATH(S)_TO_DATA]`
+`[PATH(S)_TO_DATA]` may contain multiple files, so the following is a nice way to clean, plot, and fit all Day_2_Data:
+```
+python plot.py Day_2_Data/*Plot
+```
 
 ![sample_plot_raw_data](Sample_Images/sample_plot.png)
 ![sample_plot_clean_spikes_line](Sample_Images/clean_line.png)
