@@ -9,6 +9,6 @@ Sample results from the different test programs are stored in the Img/ directory
 
 ## fit_test_simple
 
-Generates data from sin curve (sin(x) from x=0->2pi) with random noise. Tries to fit data. Example:
+Generates data from sin curve (sin(x) from x=0->pi) with random noise. Tries to fit data. Example:
 
 ![fit_test_simple](Img/fit_test_simple_0.png)
