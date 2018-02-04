@@ -27,3 +27,8 @@ sudo apt install python3-tk        # GUI library required by matplotlib (not ava
 
 There are still spikes on the left because this was our first experiment, and we switched from blocking one polarizer to the other. The spike cleaning algorithm is currently based off values from polarizer alpha (red) only. 
 
+Fitting:
+
+![fit_single1_part1_a45](Fitting/Img/fit_single1_part1_a45.png)
+![fit_coincidence_part1_a45](Fitting/Img/fit_coincidence_part1_a45.png)
+
