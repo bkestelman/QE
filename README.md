@@ -24,6 +24,7 @@ sudo apt install python3-tk        # GUI library required by matplotlib (not ava
 ```
 python plot.py Day_2_Data/*Plot
 ```
+The resulting .pngs will be placed in Results/Day_2_Data/
 
 ![sample_plot_raw_data](Sample_Images/sample_plot.png)
 ![sample_plot_clean_spikes_line](Sample_Images/clean_line.png)
