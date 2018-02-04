@@ -11,7 +11,7 @@ def noise(amount):
     return (np.random.random()-0.5)*amount
 
 # Generate data for function with noise
-xdata = np.array([n*np.pi/8 for n in range(8)])  
+xdata = np.array([n*np.pi/8 for n in range(16)])  
 ydata = np.array([np.sin(x)+noise(1) for x in xdata])
 
 # Fit data
