@@ -29,6 +29,6 @@ There are still spikes on the left because this was our first experiment, and we
 
 Fitting:
 
-![fit_single1_part1_a45](Fitting/Img/fit_single1_part1_a45.png)
-![fit_coincidence_part1_a45](Fitting/Img/fit_coincidence_part1_a45.png)
+![fit_single1_part1_a45](Fitting/Img/fit_single1_part_1_a45.png)
+![fit_coincidence_part1_a45](Fitting/Img/fit_coincidence_part_1_a45.png)
 
