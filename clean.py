@@ -41,7 +41,7 @@ def clean_spikes(data):
     logger.debug(angles)
     clean_data = [] 
     while(angle_index <= 36):
-        subseq = singles_0[start:consider+start] 
+        subseq = coincidence[start:consider+start] 
         closest = closest_subseq(subseq, select)
         logger.debug('angle: ' + str(angle_index))
         logger.debug('subseq: ' + str(subseq))

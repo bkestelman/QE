@@ -42,29 +42,45 @@ def plot_data(data):
 def sin_func(x, a, b, c, d):
     return a*np.sin(b*x+c)+d
 def cos_func(x, a, b, c, d):
-    return a*np.cos(b*x+c)+d
+    return a*np.cos(np.radians(b*x+c))+d
+def cos_sq(x):
+    return np.cos(x)*np.cos(x)
+def cos_sq_func(x, a, b, c, d):
+    return a*cos_sq(np.radians(b*x+c))+d
 
-def plot_fit(data, filename=None):
+def plot_fit(data, fit_func, x0, logname=None):
     colors = {'Single 0': 'Red', 'Single 1': 'Blue', 'Coincidence': 'Green'}
-    for key in ['Single 0', 'Single 1', 'Coincidence']:
-        x0 = fit.autoinit_wave(data['Angle'], data[key])
-        fit_data = fit.fit_data(data['Angle'], data[key], cos_func, x0)
-        ax = data.plot.scatter(x='Angle', y=key, color=colors[key])
-        fit_data.plot.line(x='x', y='y', color='Black', ax=ax)
-        if filename is not None:
-            dest = settings.RESULTS_DIR + '/' + filename + '_' + key.replace(' ', '_') + '.png'
-            logger.debug('saving to ' + dest)
-            os.makedirs(os.path.dirname(dest), exist_ok=True)
-            plt.savefig(dest)
+    #for key in ['Single 0', 'Single 1', 'Coincidence']:
+    key = 'Coincidence'
+    fit_data = fit.fit_data(data['Angle'], data[key], fit_func, x0, logname=key+' --- '+logname)
+    ax = data.plot.scatter(x='Angle', y=key, color=colors[key])
+    fit_data.plot.line(x='x', y='y', color='Black', ax=ax)
 
-logger.info('Filepath(s) to data: ' + str(settings.args.files))
-for f in settings.args.files:
-    data = read_data(f) 
-    #plot_raw_data(data)
-    #plt.title(args.file + ' (Raw Data)')
-    data = clean_data(data)
-    #plot_data(data)
-    #plt.title(args.file + ' (Cleaned Spikes)')
-    plot_fit(data, filename=f)
-    #plt.show()
+def save_plot(f, data_dir):
+    plt.title(f + ' (' + data_dir + ')')
+    dest = data_dir + '/' + f + '.png'
+    os.makedirs(os.path.dirname(dest), exist_ok=True)
+    plt.savefig(dest)
+    plt.close()
+
+if __name__ == "__main__": 
+    logger.info('Filepath(s) to data: ' + str(settings.args.files))
+    for f in settings.args.files: 
+        data = read_data(f) # always read data first
+        # raw data
+        plot_raw_data(data)
+        save_plot(f, settings.RAW_DATA_DIR)
+        # clean data (clean spikes)
+        data = clean_data(data)
+        plot_data(data)
+        save_plot(f, settings.CLEAN_DATA_DIR)
+        # fit coincidence to cos function
+        x0 = fit.autoinit_wave(data['Angle'], data['Coincidence'])
+        plot_fit(data, cos_func, x0, logname=f)
+        save_plot(f, settings.FIT_DATA_DIR + '/Cos')
+        # fit coincidence to cos^2 function
+        x0 = fit.autoinit_sq_wave(data['Angle'], data['Coincidence'])
+        plot_fit(data, cos_sq_func, x0, logname=f)
+        save_plot(f, settings.FIT_DATA_DIR + '/Cos_sq')
+        #plt.show()
 

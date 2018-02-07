@@ -1,0 +1,52 @@
+2018-02-07 11:32:51,917 - Fitting.fit_pandas - DEBUG - autoinit [6305.0, 2.0, 0, 6325.5675675675675]
+2018-02-07 11:32:51,919 - Fitting.fit_pandas - DEBUG - ***Coincidence --- Day_2_Data/Part1_a0.quCNTPlot
+2018-02-07 11:32:51,919 - Fitting.fit_pandas - DEBUG - <function cos_func at 0x7f6f85bfc510>
+2018-02-07 11:32:51,919 - Fitting.fit_pandas - DEBUG - a=5959.270885248724
+2018-02-07 11:32:51,919 - Fitting.fit_pandas - DEBUG - b=1.9919993087906918
+2018-02-07 11:32:51,919 - Fitting.fit_pandas - DEBUG - c=1.4218878165749842
+2018-02-07 11:32:51,920 - Fitting.fit_pandas - DEBUG - d=6187.6075978424105
+2018-02-07 11:32:52,074 - Fitting.fit_pandas - DEBUG - ***Coincidence --- Day_2_Data/Part1_a0.quCNTPlot
+2018-02-07 11:32:52,074 - Fitting.fit_pandas - DEBUG - <function cos_sq_func at 0x7f6f85bfc620>
+2018-02-07 11:32:52,074 - Fitting.fit_pandas - DEBUG - a=11918.541746044868
+2018-02-07 11:32:52,074 - Fitting.fit_pandas - DEBUG - b=0.9959996592043399
+2018-02-07 11:32:52,074 - Fitting.fit_pandas - DEBUG - c=0.7109428045114207
+2018-02-07 11:32:52,074 - Fitting.fit_pandas - DEBUG - d=228.33669700274888
+2018-02-07 11:32:52,803 - Fitting.fit_pandas - DEBUG - autoinit [4565.0, 2.0, 45.0, 4795.189189189189]
+2018-02-07 11:32:52,804 - Fitting.fit_pandas - DEBUG - ***Coincidence --- Day_2_Data/Part1_a135.quCNTPlot
+2018-02-07 11:32:52,804 - Fitting.fit_pandas - DEBUG - <function cos_func at 0x7f6f85bfc510>
+2018-02-07 11:32:52,804 - Fitting.fit_pandas - DEBUG - a=4381.405137429698
+2018-02-07 11:32:52,804 - Fitting.fit_pandas - DEBUG - b=2.0078626013266923
+2018-02-07 11:32:52,804 - Fitting.fit_pandas - DEBUG - c=68.48700565572497
+2018-02-07 11:32:52,804 - Fitting.fit_pandas - DEBUG - d=4748.834240810264
+2018-02-07 11:32:52,959 - Fitting.fit_pandas - DEBUG - ***Coincidence --- Day_2_Data/Part1_a135.quCNTPlot
+2018-02-07 11:32:52,959 - Fitting.fit_pandas - DEBUG - <function cos_sq_func at 0x7f6f85bfc620>
+2018-02-07 11:32:52,959 - Fitting.fit_pandas - DEBUG - a=8762.81031665929
+2018-02-07 11:32:52,959 - Fitting.fit_pandas - DEBUG - b=1.0039313126266503
+2018-02-07 11:32:52,960 - Fitting.fit_pandas - DEBUG - c=34.24350135186034
+2018-02-07 11:32:52,960 - Fitting.fit_pandas - DEBUG - d=367.42906789898484
+2018-02-07 11:32:53,632 - Fitting.fit_pandas - DEBUG - autoinit [4800.0, 2.0, 45.0, 4944.378378378378]
+2018-02-07 11:32:53,633 - Fitting.fit_pandas - DEBUG - ***Coincidence --- Day_2_Data/Part1_a45.quCNTPlot
+2018-02-07 11:32:53,633 - Fitting.fit_pandas - DEBUG - <function cos_func at 0x7f6f85bfc510>
+2018-02-07 11:32:53,634 - Fitting.fit_pandas - DEBUG - a=-4468.846763341252
+2018-02-07 11:32:53,634 - Fitting.fit_pandas - DEBUG - b=1.9631085038110998
+2018-02-07 11:32:53,634 - Fitting.fit_pandas - DEBUG - c=95.69018075953035
+2018-02-07 11:32:53,634 - Fitting.fit_pandas - DEBUG - d=4945.029181947597
+2018-02-07 11:32:53,804 - Fitting.fit_pandas - DEBUG - ***Coincidence --- Day_2_Data/Part1_a45.quCNTPlot
+2018-02-07 11:32:53,804 - Fitting.fit_pandas - DEBUG - <function cos_sq_func at 0x7f6f85bfc620>
+2018-02-07 11:32:53,805 - Fitting.fit_pandas - DEBUG - a=-8937.693341189679
+2018-02-07 11:32:53,805 - Fitting.fit_pandas - DEBUG - b=0.9815542123996029
+2018-02-07 11:32:53,805 - Fitting.fit_pandas - DEBUG - c=47.84510036205272
+2018-02-07 11:32:53,805 - Fitting.fit_pandas - DEBUG - d=9413.875846024834
+2018-02-07 11:32:54,461 - Fitting.fit_pandas - DEBUG - autoinit [3735.0, 2.0, 90.0, 3350.6486486486488]
+2018-02-07 11:32:54,463 - Fitting.fit_pandas - DEBUG - ***Coincidence --- Day_2_Data/Part1_a90.quCNTPlot
+2018-02-07 11:32:54,463 - Fitting.fit_pandas - DEBUG - <function cos_func at 0x7f6f85bfc510>
+2018-02-07 11:32:54,463 - Fitting.fit_pandas - DEBUG - a=3269.5812936760653
+2018-02-07 11:32:54,463 - Fitting.fit_pandas - DEBUG - b=1.9729910397009085
+2018-02-07 11:32:54,463 - Fitting.fit_pandas - DEBUG - c=183.90559622671873
+2018-02-07 11:32:54,463 - Fitting.fit_pandas - DEBUG - d=3395.6256842080434
+2018-02-07 11:32:54,637 - Fitting.fit_pandas - DEBUG - ***Coincidence --- Day_2_Data/Part1_a90.quCNTPlot
+2018-02-07 11:32:54,637 - Fitting.fit_pandas - DEBUG - <function cos_sq_func at 0x7f6f85bfc620>
+2018-02-07 11:32:54,637 - Fitting.fit_pandas - DEBUG - a=6539.162727106642
+2018-02-07 11:32:54,637 - Fitting.fit_pandas - DEBUG - b=0.9864954917140065
+2018-02-07 11:32:54,637 - Fitting.fit_pandas - DEBUG - c=91.95279839753499
+2018-02-07 11:32:54,638 - Fitting.fit_pandas - DEBUG - d=126.0442151852665
