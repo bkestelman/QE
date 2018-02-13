@@ -18,3 +18,5 @@ def createLogger(name):
     handler.setFormatter(formatter)
     logger.addHandler(handler)
     return logger
+
+alpha = 0

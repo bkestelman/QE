@@ -21,7 +21,7 @@ def fit_data(xdata, ydata, func, x0=None, logname=None):
     logger.debug(str(func))
     alphabet = string.ascii_lowercase
     for param in range(len(x0)):
-        logger.debug(alphabet[param] + '=' + str(fit[0][param]))
+        logger.debug(alphabet[param] + '=' + str(fit[0][param]) + ' init=' + str(x0[param]))
     #yfit = np.array(func(xdata, fit[0][0], fit[0][1])) # Fit function data
     yfit = np.array(func(xdata, *fit[0]))
     return pandas.DataFrame({'x': xdata.tolist(), 'y': yfit.tolist()})
@@ -51,7 +51,7 @@ def autoinit_wave(xdata, ydata):
     d = ydata.mean()
     #d = 0 # for sq trig functions, 0 makes more sense
     logger.debug('autoinit ' + str([a, b, c, d]))
-    return np.array([a, b, c, d])
+    return [a, b, c, d]
 
 def autoinit_sq_wave(xdata, ydata):
     a = ydata.max()-ydata.min()
@@ -59,4 +59,4 @@ def autoinit_sq_wave(xdata, ydata):
     b = 1
     c = auto_phase(ydata) 
     d = 0
-    return np.array([a, b, c, d])
+    return [a, b, c, d]
