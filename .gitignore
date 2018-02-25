@@ -2,5 +2,9 @@ venv
 __pycache__
 
 Log
+*.log
 
 *.pyc
+*.png
+
+*Data

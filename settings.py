@@ -9,10 +9,10 @@ FIT_DATA_DIR = RESULTS_DIR + '/Fit'
 def log_path(filename):
     return LOG_DIR + '/' + filename + '.log'
 
-def createLogger(name):
+def createLogger(name, filemode='a'):
     logger = logging.getLogger(name)
     logger.setLevel(logging.DEBUG)
-    handler = logging.FileHandler(log_path(name), 'a')
+    handler = logging.FileHandler(log_path(name), filemode)
     handler.setLevel(logging.DEBUG)
     formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
     handler.setFormatter(formatter)
@@ -20,3 +20,7 @@ def createLogger(name):
     return logger
 
 alpha = 0
+amp = 0
+
+# plot settings
+LEGEND = None

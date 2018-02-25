@@ -29,19 +29,24 @@ def prettify_data(data):
 # 2. select the 5 consecutive points with the smallest range (the 5 most similar points)
 # 3. loop. consider the 10 points after the selected 5
 # 4. use selected points
-def clean_spikes(data):
+def clean_spikes(data, clean_keys=None, clean_ranges=None):
     start = 0
     consider = 13 # 13 seems to work better than 10 because sometimes we waited longer than 5 seconds
     select = 5
     singles_0 = data['Single 0'].tolist()
     singles_1 = data['Single 1'].tolist()
     coincidence = data['Coincidence'].tolist()
+    clean_col = data[clean_keys[0]].tolist()
+    key_counter = 0
     angles = [x for x in range(0, 361, 10)]
     angle_index = 0
     logger.debug(angles)
     clean_data = [] 
     while(angle_index <= 36):
-        subseq = coincidence[start:consider+start] 
+        if angle_index*10 > clean_ranges[key_counter]:
+            key_counter += 1
+            clean_col = data[clean_keys[key_counter]].tolist()
+        subseq = clean_col[start:consider+start] 
         closest = closest_subseq(subseq, select)
         logger.debug('angle: ' + str(angle_index))
         logger.debug('subseq: ' + str(subseq))
